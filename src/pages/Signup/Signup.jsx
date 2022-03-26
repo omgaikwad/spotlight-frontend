@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import "./Signup.css";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   return (
@@ -53,13 +54,10 @@ const Signup = () => {
               <button class="btn btn-primary signup-btn">Sign Up</button>
             </div>
             <div class="login-redirect-container">
-              <a
-                href="../login/login.html"
-                class="login-redirect-link btn-link"
-              >
+              <Link to="/login" class="login-redirect-link btn-link">
                 Already have an account{" "}
                 <i class="fa-solid fa-chevron-right"></i>
-              </a>
+              </Link>
             </div>
           </form>
         </div>

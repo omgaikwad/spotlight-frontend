@@ -1,6 +1,7 @@
 import React from "react";
 import "./Login.css";
 import Navbar from "../../components/Navbar/Navbar";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -41,12 +42,9 @@ const Login = () => {
               <button class="btn btn-primary login-btn">Login</button>
             </div>
             <div class="signup-redirect-container">
-              <a
-                href="../signup/signup.html"
-                class="signup-redirect-link btn-link"
-              >
+              <Link to="/signup" class="signup-redirect-link btn-link">
                 Create New Account <i class="fa-solid fa-chevron-right"></i>
-              </a>
+              </Link>
             </div>
           </form>
         </div>

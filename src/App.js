@@ -10,11 +10,21 @@ import Login from "./pages/Login/Login";
 import Playlist from "./pages/Playlist/Playlist";
 import Signup from "./pages/Signup/Signup";
 import WatchLater from "./pages/WatchLater/WatchLater";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <Login />
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/explore" element={<Explore />} />
+        <Route path="/playlist" element={<Playlist />} />
+        <Route path="/liked" element={<Liked />} />
+        <Route path="/watch-later" element={<WatchLater />} />
+        <Route path="/history" element={<History />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
     </div>
   );
 }

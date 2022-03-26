@@ -1,14 +1,15 @@
 import React from "react";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <nav className="Navbar">
       <div class="left-navbar">
         <div class="brand-logo">
-          <a href="./index.html">
+          <Link to="/">
             <p class="brand-name">Spotlight</p>
-          </a>
+          </Link>
         </div>
       </div>
       <div class="center-navbar">
@@ -24,7 +25,9 @@ const Navbar = () => {
         </div>
       </div>
       <div class="right-navbar">
-        <button class="btn btn-primary btn-login">Login</button>
+        <Link to="/login" class="btn btn-primary btn-login">
+          Login
+        </Link>
       </div>
     </nav>
   );
