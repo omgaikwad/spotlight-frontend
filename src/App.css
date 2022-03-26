@@ -1,51 +1,23 @@
-.App {
-  text-align: center;
+@import url("https://crimsonui-beta.netlify.app/css/components.css");
+
+:root {
+  --spotlight-primary: #1ed760;
+  --spotlight-secondary: #43454c;
+  --spotlight-white: #ffffff;
+  --spotlight-background: #121212;
+  --spotlight-input-background: #191c21;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  font-family: "Roboto", sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  background-color: var(--spotlight-background);
 }
-
-.App-header {
-  background-color: #22201c;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
+a {
+  text-decoration: none;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-.brand-title {
-  font-size: 3rem;
-  color: #d9d9d9;
-}
-
-.brand-title span {
-  color: #ffde59;
-}
-
-.brand-description {
-  font-size: 1.4rem;
-}
-
-.links {
-  display: flex;
-}
-
-.links a {
-  color: #d9d9d9;
-  font-size: 1.2rem;
-  margin: 1rem;
+.page-heading {
+  color: var(--spotlight-primary);
 }
