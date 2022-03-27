@@ -1,3 +1,3 @@
-## Video Library Backend
+## Spotlight
 
-This folder contains the Mock Backend created for Video Library App. It contains different API end-points and database configuration for building Video Library; so that you can focus on building Frontend.
+Video Library Web App built using ReactJS, crimsonUI and CSS3.
