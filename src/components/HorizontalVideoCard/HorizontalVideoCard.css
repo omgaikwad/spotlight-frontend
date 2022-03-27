@@ -1,0 +1,49 @@
+.HorizontalVideoCard {
+  width: 402px;
+  height: 98px;
+  margin-bottom: 2rem;
+  /* border: 1px solid var(--spotlight-primary); */
+  display: flex;
+}
+.horizontal-video-img {
+  width: 168px;
+}
+.horizontal-video-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 8px;
+}
+.horizontal-video-card-description {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 4px;
+  color: white;
+}
+.horizontal-video-card-description i {
+  margin-right: 8px;
+  margin-top: 8px;
+  height: 1.8rem;
+  cursor: pointer;
+}
+.horizontal-video-card-channel {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 8px;
+}
+.horizontal-channel-name {
+  color: var(--spotlight-primary);
+  font-size: 12px;
+}
+.horizontal-video-card-channel img {
+  margin-left: 0;
+}
+.horizontal-video-date {
+  color: var(--spotlight-white);
+  font-size: 12px;
+}
+.horizontal-video-title {
+  font-size: 14px;
+}

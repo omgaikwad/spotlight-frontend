@@ -29,11 +29,11 @@ const Explore = () => {
           </button>
           <button class="category-chip">
             <i class="fa-solid fa-microphone"></i>
-            <p>Ted Talks</p>
+            <p>Podcast</p>
           </button>
           <button class="category-chip">
             <i class="fa-solid fa-camera"></i>
-            <p>Vlogs</p>
+            <p>Vlog</p>
           </button>
         </div>
 

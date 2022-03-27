@@ -29,6 +29,7 @@
 }
 .channel-name {
   color: var(--spotlight-primary);
+  font-size: 14px;
 }
 .video-card-channel img {
   margin-left: 0;

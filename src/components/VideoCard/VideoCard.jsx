@@ -1,17 +1,16 @@
 import React from "react";
+import "./VideoCard.css";
+import { Link } from "react-router-dom";
 
 const VideoCard = () => {
   return (
     <div className="VideoCard video-card">
-      <a href="">
+      <Link to="/video">
         <img src="../../assets/video-thumbnails/akash-singh-apu.jpg" alt="" />
-      </a>
+      </Link>
       <div class="video-card-content">
         <div class="video-card-description">
           <p class="video-title">Akaash Singh's Defense of Apu</p>
-          <div class="video-card-options">
-            <i class="fa-solid fa-lg fa-ellipsis-vertical"></i>
-          </div>
         </div>
         <div class="video-card-channel">
           <img
@@ -19,7 +18,9 @@ const VideoCard = () => {
             src="../../assets/channel-avatar/joe-rogan.jpg"
             alt="avatar"
           />
-          <p class="channel-name">PowerfulJRE</p>
+          <p class="channel-name">
+            PowerfulJRE <i class="fa-solid fa-circle-check"></i>
+          </p>
         </div>
       </div>
     </div>
