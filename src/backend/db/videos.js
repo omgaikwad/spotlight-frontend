@@ -1,10 +1,5 @@
 import { v4 as uuid } from "uuid";
 
-/**
- * Videos Database can be added here.
- * You can add videos of your wish with different attributes
- * */
-
 export const videos = [
   {
     _id: uuid(),

@@ -7,7 +7,6 @@ import { useVideoContext } from "../../context/video-context";
 
 const Explore = () => {
   const { videoList } = useVideoContext();
-  console.log(videoList);
 
   const filteredVideoList = [...videoList];
 
