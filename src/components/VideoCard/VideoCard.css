@@ -14,11 +14,11 @@
   justify-content: space-between;
   gap: 4px;
   color: white;
+  height: 1.8rem;
 }
 .video-card-description i {
   margin-right: 8px;
   margin-top: 8px;
-  height: 1.8rem;
   cursor: pointer;
 }
 .video-card-channel {
@@ -33,4 +33,8 @@
 }
 .video-card-channel img {
   margin-left: 0;
+}
+.video-title {
+  font-size: 14px;
+  font-weight: 600;
 }

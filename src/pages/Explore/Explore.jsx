@@ -3,8 +3,14 @@ import "./Explore.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import VideoCard from "../../components/VideoCard/VideoCard";
+import { useVideoContext } from "../../context/video-context";
 
 const Explore = () => {
+  const { videoList } = useVideoContext();
+  console.log(videoList);
+
+  const filteredVideoList = [...videoList];
+
   return (
     <div className="Explore video-listing-body">
       <Navbar />
@@ -38,7 +44,9 @@ const Explore = () => {
         </div>
 
         <div class="video-container">
-          <VideoCard />
+          {filteredVideoList.map((videoItem) => {
+            return <VideoCard video={videoItem} />;
+          })}
         </div>
       </div>
     </div>

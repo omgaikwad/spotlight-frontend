@@ -13,9 +13,7 @@ const Liked = () => {
 
       <div className="video-content-container">
         <h2 className="page-heading">Liked Videos</h2>
-        <div className="video-container">
-          <VideoCard />
-        </div>
+        <div className="video-container">{/* <VideoCard /> */}</div>
       </div>
     </div>
   );

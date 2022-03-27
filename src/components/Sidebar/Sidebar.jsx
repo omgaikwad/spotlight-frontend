@@ -3,7 +3,6 @@ import "./Sidebar.css";
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
-  console.log(window.location.pathname);
   return (
     <div className="Sidebar sidebar-container">
       <Link to="/" className="sidebar-navigation">

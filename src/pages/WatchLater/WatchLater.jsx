@@ -12,9 +12,7 @@ const WatchLater = () => {
 
       <div class="video-content-container">
         <h2 class="page-heading">Watch Later</h2>
-        <div class="video-container">
-          <VideoCard />
-        </div>
+        <div class="video-container">{/* <VideoCard /> */}</div>
       </div>
     </div>
   );
