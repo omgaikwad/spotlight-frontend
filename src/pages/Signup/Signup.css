@@ -1,0 +1,68 @@
+.video-listing-body {
+  width: 100%;
+}
+
+.main-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.signup-container {
+  margin-top: 8px;
+  width: fit-content;
+}
+.signup-container form {
+  background-color: transparent;
+  border: 2px solid var(--spotlight-primary);
+  color: white;
+}
+.signup-btn {
+  width: 100%;
+  background-color: var(--spotlight-primary);
+}
+.form-checkbox input {
+  margin-right: 1rem;
+}
+.login-redirect-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-redirect-link {
+  color: var(--spotlight-white);
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+.signup-heading {
+  text-align: center;
+  color: var(--spotlight-primary);
+}
+.create-password-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.password-eye-icon {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  cursor: pointer;
+}
+.password-again-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.password-again-eye-icon {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  cursor: pointer;
+}
+.btn-link {
+  text-decoration-color: var(--spotlight-primary);
+}
+.btn-link:hover {
+  color: var(--spotlight-primary);
+}

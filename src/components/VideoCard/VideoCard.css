@@ -1,0 +1,35 @@
+.video-card {
+  width: 20rem;
+  height: 18rem;
+  margin-bottom: 2rem;
+}
+.video-card-content {
+  display: flex;
+  flex-direction: column;
+  margin: 8px;
+}
+.video-card-description {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 4px;
+  color: white;
+}
+.video-card-description i {
+  margin-right: 8px;
+  margin-top: 8px;
+  height: 1.8rem;
+  cursor: pointer;
+}
+.video-card-channel {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 8px;
+}
+.channel-name {
+  color: var(--spotlight-primary);
+}
+.video-card-channel img {
+  margin-left: 0;
+}

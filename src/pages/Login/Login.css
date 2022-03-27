@@ -1,0 +1,68 @@
+body {
+  width: 100%;
+}
+.main-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.login-container {
+  margin-top: 6rem;
+  width: fit-content;
+}
+.login-container form {
+  background-color: transparent;
+  color: var(--spotlight-white);
+  border: 2px solid var(--spotlight-primary);
+}
+.login-btn {
+  width: 100%;
+  background-color: var(--spotlight-primary);
+}
+
+.signup-redirect-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.signup-redirect-link {
+  color: var(--spotlight-white);
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+.login-heading {
+  text-align: center;
+  color: var(--spotlight-primary);
+}
+
+.checkbox-container {
+  display: flex;
+  margin-right: 1rem;
+}
+.form-checkbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.forgot-password {
+  font-size: 0.8rem;
+  color: var(--spotlight-primary);
+}
+.login-password-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.login-password-eye-icon {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  cursor: pointer;
+}
+.btn-link {
+  text-decoration-color: var(--spotlight-primary);
+}
+.btn-link:hover {
+  color: var(--spotlight-primary);
+}
