@@ -12,9 +12,7 @@ const History = () => {
 
       <div class="video-content-container">
         <h2 class="page-heading">History</h2>
-        <div class="video-container">
-          <VideoCard />
-        </div>
+        <div class="video-container">{/* <VideoCard /> */}</div>
       </div>
     </div>
   );
