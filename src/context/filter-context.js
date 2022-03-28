@@ -2,7 +2,7 @@ const { createContext, useContext, useReducer } = require("react");
 
 const FilterContext = createContext();
 
-const videoFilterReducerFunc = (videoListState, action) => {
+const videoListReducerFunc = (videoListState, action) => {
   switch (action.type) {
     case "CATEGORY":
       return {
@@ -16,7 +16,7 @@ const videoFilterReducerFunc = (videoListState, action) => {
           ? videoListState.likedVideo.filter((video) => video != action.payload)
           : [...videoListState.likedVideo, action.payload],
       };
-    case "WATCHLATER":
+    case "WATCH_LATER":
       return {
         ...videoListState,
         watchLater: videoListState.watchLater.includes(action.payload)
@@ -26,7 +26,9 @@ const videoFilterReducerFunc = (videoListState, action) => {
     case "HISTORY":
       return {
         ...videoListState,
-        history: [...videoListState.history, action.payload],
+        history: videoListState.history.includes(action.payload)
+          ? [...videoListState.history]
+          : [...videoListState.history, action.payload],
       };
     case "CLEAR_HISTORY":
       return {
@@ -38,7 +40,7 @@ const videoFilterReducerFunc = (videoListState, action) => {
 
 const FilterContextProvider = ({ children }) => {
   const [videoListState, videoListDispatch] = useReducer(videoListReducerFunc, {
-    category: "",
+    category: "all",
     likedVideo: [],
     watchLater: [],
     history: [],
@@ -51,6 +53,6 @@ const FilterContextProvider = ({ children }) => {
   );
 };
 
-const useFilter = () => useContext(FilterContext);
+const useFilterContext = () => useContext(FilterContext);
 
-export { FilterContextProvider, useFilter };
+export { FilterContextProvider, useFilterContext };

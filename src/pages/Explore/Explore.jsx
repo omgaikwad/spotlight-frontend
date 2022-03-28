@@ -4,45 +4,113 @@ import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import VideoCard from "../../components/VideoCard/VideoCard";
 import { useVideoContext } from "../../context/video-context";
+import { useFilterContext } from "../../context/filter-context";
 
 const Explore = () => {
   const { videoList } = useVideoContext();
+  const { videoListState, videoListDispatch } = useFilterContext();
 
-  const filteredVideoList = [...videoList];
+  const filteredVideoList =
+    videoListState.category === "all"
+      ? [...videoList]
+      : [...videoList].filter(
+          (video) => video.category === videoListState.category
+        );
 
   return (
     <div className="Explore video-listing-body">
       <Navbar />
       <Sidebar />
-      <div class="video-content-container">
-        <div class="category-chips-container">
-          <button class="category-chip">
-            <i class="fa-solid fa-code"></i>
+      <div className="video-content-container">
+        <div className="category-chips-container">
+          <button
+            onClick={() =>
+              videoListDispatch({ type: "CATEGORY", payload: "all" })
+            }
+            className={`category-chip ${
+              videoListState.category === "all" ? "active-category-chip" : null
+            }`}
+          >
+            <i className="fa-solid fa-layer-group"></i>
+            <p>All</p>
+          </button>
+          <button
+            onClick={() =>
+              videoListDispatch({ type: "CATEGORY", payload: "tech" })
+            }
+            className={`category-chip ${
+              videoListState.category === "tech" ? "active-category-chip" : null
+            }`}
+          >
+            <i className="fa-solid fa-code"></i>
             <p>Tech</p>
           </button>
-          <button class="category-chip">
-            <i class="fa-solid fa-clapperboard"></i>
+          <button
+            onClick={() =>
+              videoListDispatch({ type: "CATEGORY", payload: "anime" })
+            }
+            className={`category-chip ${
+              videoListState.category === "anime"
+                ? "active-category-chip"
+                : null
+            }`}
+          >
+            <i className="fa-solid fa-clapperboard"></i>
             <p>Anime</p>
           </button>
-          <button class="category-chip">
-            <i class="fa-solid fa-gamepad"></i>
+          <button
+            onClick={() =>
+              videoListDispatch({ type: "CATEGORY", payload: "gaming" })
+            }
+            className={`category-chip ${
+              videoListState.category === "gaming"
+                ? "active-category-chip"
+                : null
+            }`}
+          >
+            <i className="fa-solid fa-gamepad"></i>
             <p>Gaming</p>
           </button>
-          <button class="category-chip">
-            <i class="fa-solid fa-music"></i>
+          <button
+            onClick={() =>
+              videoListDispatch({ type: "CATEGORY", payload: "music" })
+            }
+            className={`category-chip ${
+              videoListState.category === "music"
+                ? "active-category-chip"
+                : null
+            }`}
+          >
+            <i className="fa-solid fa-music"></i>
             <p>Music</p>
           </button>
-          <button class="category-chip">
-            <i class="fa-solid fa-microphone"></i>
+          <button
+            onClick={() =>
+              videoListDispatch({ type: "CATEGORY", payload: "podcast" })
+            }
+            className={`category-chip ${
+              videoListState.category === "podcast"
+                ? "active-category-chip"
+                : null
+            }`}
+          >
+            <i className="fa-solid fa-microphone"></i>
             <p>Podcast</p>
           </button>
-          <button class="category-chip">
-            <i class="fa-solid fa-camera"></i>
+          <button
+            onClick={() =>
+              videoListDispatch({ type: "CATEGORY", payload: "vlog" })
+            }
+            className={`category-chip ${
+              videoListState.category === "vlog" ? "active-category-chip" : null
+            }`}
+          >
+            <i className="fa-solid fa-camera"></i>
             <p>Vlog</p>
           </button>
         </div>
 
-        <div class="video-container">
+        <div className="video-container">
           {filteredVideoList.map((videoItem) => {
             return <VideoCard key={videoItem._id} video={videoItem} />;
           })}

@@ -5,10 +5,12 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import HorizontalVideoCard from "../../components/HorizontalVideoCard/HorizontalVideoCard";
 import { useParams } from "react-router-dom";
 import { useVideoContext } from "../../context/video-context";
+import { useFilterContext } from "../../context/filter-context";
 
 const Video = () => {
   const { videoId } = useParams();
   const { videoList } = useVideoContext();
+  const { videoListState, videoListDispatch } = useFilterContext();
 
   const video = videoList.find((item) => item._id === videoId);
 
@@ -40,13 +42,37 @@ const Video = () => {
                 <p> {video.date} </p>
               </div>
 
-              <button className="video-details-cta-btn">
+              <button
+                onClick={() =>
+                  videoListDispatch({ type: "LIKE", payload: video })
+                }
+                className={`video-details-cta-btn ${
+                  videoListState.likedVideo.includes(video)
+                    ? "active-cta-btn"
+                    : null
+                }`}
+              >
                 <i className="fa-solid fa-heart fa-md"></i>
-                <p>Like</p>
+                <p>
+                  {videoListState.likedVideo.includes(video) ? "Liked" : "Like"}
+                </p>
               </button>
-              <button className="video-details-cta-btn">
+              <button
+                onClick={() =>
+                  videoListDispatch({ type: "WATCH_LATER", payload: video })
+                }
+                className={`video-details-cta-btn ${
+                  videoListState.watchLater.includes(video)
+                    ? "active-cta-btn"
+                    : null
+                }`}
+              >
                 <i className="fa-solid fa-clock fa-md"></i>
-                <p>Add to Watch Later</p>
+                <p>
+                  {videoListState.watchLater.includes(video)
+                    ? "Saved"
+                    : "Save to Watch Later"}
+                </p>
               </button>
               <button className="video-details-cta-btn">
                 <i className="fa-solid fa-folder-plus fa-md"></i>

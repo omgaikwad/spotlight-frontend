@@ -1,9 +1,12 @@
 import React from "react";
 import "./VideoCard.css";
 import { useNavigate } from "react-router-dom";
+import { useFilterContext } from "../../context/filter-context";
 
 const VideoCard = ({ video }) => {
   const navigate = useNavigate();
+
+  const { videoListDispatch } = useFilterContext();
 
   const videoClickHandler = (videoId) => {
     navigate(`/${videoId}`);
@@ -15,7 +18,10 @@ const VideoCard = ({ video }) => {
         src={video.thumbnail}
         alt=""
         className="video-card-thumbnail"
-        onClick={() => videoClickHandler(video._id)}
+        onClick={() => {
+          videoClickHandler(video._id);
+          videoListDispatch({ type: "HISTORY", payload: video });
+        }}
       />
       <div className="video-card-content">
         <div className="video-card-description">
