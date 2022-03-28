@@ -44,7 +44,7 @@ const Explore = () => {
 
         <div class="video-container">
           {filteredVideoList.map((videoItem) => {
-            return <VideoCard video={videoItem} />;
+            return <VideoCard key={videoItem._id} video={videoItem} />;
           })}
         </div>
       </div>

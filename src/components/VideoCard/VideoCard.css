@@ -38,3 +38,6 @@
   font-size: 14px;
   font-weight: 600;
 }
+.video-card-thumbnail {
+  cursor: pointer;
+}

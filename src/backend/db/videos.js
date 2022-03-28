@@ -2,7 +2,7 @@ import { v4 as uuid } from "uuid";
 
 export const videos = [
   {
-    _id: uuid(),
+    _id: "I5pVVmcSXVU",
     title: "Akaash Singh's Defense of Apu",
     thumbnail: "/assets/video-thumbnails/akash-singh-apu.jpg",
     category: "podcast",
@@ -12,7 +12,7 @@ export const videos = [
     embedLink: "https://www.youtube.com/embed/I5pVVmcSXVU",
   },
   {
-    _id: uuid(),
+    _id: "rFY2sjbrCEk",
     title: "LET'S GO. // Episode 4: Act II Kickoff - VALORANT",
     thumbnail: "/assets/video-thumbnails/yoru-valorant.jpg",
     category: "gaming",
@@ -22,7 +22,7 @@ export const videos = [
     embedLink: "https://www.youtube.com/embed/rFY2sjbrCEk",
   },
   {
-    _id: uuid(),
+    _id: "OfS1jFck8YQ",
     title: "INNA - Nirvana",
     thumbnail: "/assets/video-thumbnails/nirvana-inna.jpg",
     category: "music",
@@ -32,7 +32,7 @@ export const videos = [
     embedLink: "https://www.youtube.com/embed/OfS1jFck8YQ",
   },
   {
-    _id: uuid(),
+    _id: "wvhP1al3Ur4",
     title: "Mac Studio Review: Double Trouble!",
     thumbnail: "/assets/video-thumbnails/mac-studio-marques-brownlee.jpg",
     category: "tech",
@@ -42,7 +42,7 @@ export const videos = [
     embedLink: "https://www.youtube.com/embed/wvhP1al3Ur4",
   },
   {
-    _id: uuid(),
+    _id: "Qmi-Xwq-MEc",
     title: "Traveling to the Happiest Country in the World!!",
     thumbnail:
       "/assets/video-thumbnails/travelling-to-happiest-country-yes-theory.jpg",
@@ -53,7 +53,7 @@ export const videos = [
     embedLink: "https://www.youtube.com/embed/Qmi-Xwq-MEc",
   },
   {
-    _id: uuid(),
+    _id: "kAAkkmkRSbQ",
     title: "Naruto Trains With Kakashi",
     thumbnail: "/assets/video-thumbnails/naruto-fights-kakashi.jpg",
     category: "anime",

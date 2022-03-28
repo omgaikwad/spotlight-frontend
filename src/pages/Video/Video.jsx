@@ -3,8 +3,19 @@ import "./Video.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import HorizontalVideoCard from "../../components/HorizontalVideoCard/HorizontalVideoCard";
+import { useParams } from "react-router-dom";
+import { useVideoContext } from "../../context/video-context";
 
 const Video = () => {
+  const { videoId } = useParams();
+  const { videoList } = useVideoContext();
+
+  const video = videoList.find((item) => item._id === videoId);
+
+  const suggestedVideoList = [...videoList]
+    .filter((item) => item._id !== videoId)
+    .slice(0, 4);
+
   return (
     <div className="Video video-listing-body">
       <Navbar />
@@ -15,18 +26,18 @@ const Video = () => {
             <iframe
               width="796.5"
               height="448.2"
-              src="https://www.youtube-nocookie.com/embed/I5pVVmcSXVU"
+              src={`https://www.youtube-nocookie.com/embed/${video._id}/?autoplay=1`}
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
               allowfullscreen
             ></iframe>
           </div>
-          <h2 className="video-details-title">Akaash Singh's Defense of Apu</h2>
+          <h2 className="video-details-title">{video.title}</h2>
           <div className="video-details-action-container">
             <div className="video-details-btn-container">
               <div className="video-details-date-container">
-                <p>Feb 9, 2022</p>
+                <p> {video.date} </p>
               </div>
 
               <button className="video-details-cta-btn">
@@ -46,20 +57,19 @@ const Video = () => {
           <div class="video-card-channel">
             <img
               class="avatar avatar-sm"
-              src="../../assets/channel-avatar/joe-rogan.jpg"
+              src={video.channelAvatar}
               alt="avatar"
             />
             <p class="channel-name">
-              PowerfulJRE <i class="fa-solid fa-circle-check"></i>
+              {video.channel} <i class="fa-solid fa-circle-check"></i>
             </p>
           </div>
         </div>
         <div className="suggested-video-container">
           <h2 className="suggested-heading">Suggested Videos</h2>
-          <HorizontalVideoCard />
-          <HorizontalVideoCard />
-          <HorizontalVideoCard />
-          <HorizontalVideoCard />
+          {suggestedVideoList.map((video) => {
+            return <HorizontalVideoCard video={video} />;
+          })}
         </div>
       </div>
     </div>

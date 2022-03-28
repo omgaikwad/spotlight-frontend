@@ -3,6 +3,7 @@
   height: 98px;
   margin-bottom: 2rem;
   display: flex;
+  cursor: pointer;
 }
 .horizontal-video-img {
   width: 168px;

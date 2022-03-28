@@ -1,13 +1,22 @@
 import React from "react";
 import "./VideoCard.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const VideoCard = ({ video }) => {
+  const navigate = useNavigate();
+
+  const videoClickHandler = (videoId) => {
+    navigate(`/${videoId}`);
+  };
+
   return (
     <div className="VideoCard video-card">
-      <Link to="/video">
-        <img src={video.thumbnail} alt="" />
-      </Link>
+      <img
+        src={video.thumbnail}
+        alt=""
+        className="video-card-thumbnail"
+        onClick={() => videoClickHandler(video._id)}
+      />
       <div className="video-card-content">
         <div className="video-card-description">
           <p className="video-title">{video.title}</p>
