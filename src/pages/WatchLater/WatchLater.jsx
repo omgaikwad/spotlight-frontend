@@ -15,9 +15,9 @@ const WatchLater = () => {
       <Navbar />
       <Sidebar />
 
-      <div class="video-content-container">
-        <h2 class="page-heading">Watch Later</h2>
-        <div class="video-container">
+      <div className="video-content-container">
+        <h2 className="page-heading">Watch Later</h2>
+        <div className="video-container">
           {watchedVideoList.map((video) => (
             <VideoCard video={video} />
           ))}

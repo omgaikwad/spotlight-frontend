@@ -7,10 +7,10 @@ const Signup = () => {
   return (
     <div className="Signup">
       <Navbar />
-      <main class="main-body">
-        <div class="signup-container">
+      <main className="main-body">
+        <div className="signup-container">
           <form>
-            <h3 class="signup-heading">Sign Up</h3>
+            <h3 className="signup-heading">Sign Up</h3>
 
             <label for="form-first-name">First Name</label>
             <input id="form-first-name" type="text" placeholder="John" />
@@ -22,41 +22,41 @@ const Signup = () => {
             <input id="form-email" type="email" placeholder="abc@xyz.com" />
 
             <label for="form-password">Create Password </label>
-            <div class="create-password-container">
+            <div className="create-password-container">
               <input
                 id="form-password"
                 type="password"
                 placeholder="••••••••••••••"
               />
-              <span class="password-eye-icon">
-                <i class="fa-solid fa-eye"></i>
+              <span className="password-eye-icon">
+                <i className="fa-solid fa-eye"></i>
               </span>
             </div>
 
             <label for="form-password-again">Confirm Password </label>
-            <div class="password-again-container">
+            <div className="password-again-container">
               <input
                 id="form-password-again"
                 type="password"
                 placeholder="••••••••••••••"
               />
-              <span class="password-again-eye-icon">
-                <i class="fa-solid fa-eye"></i>
+              <span className="password-again-eye-icon">
+                <i className="fa-solid fa-eye"></i>
               </span>
             </div>
 
-            <div class="form-checkbox">
+            <div className="form-checkbox">
               <input type="checkbox" />
               <p>I agree to the terms and conditions.</p>
             </div>
 
-            <div class="form-buttons">
-              <button class="btn btn-primary signup-btn">Sign Up</button>
+            <div className="form-buttons">
+              <button className="btn btn-primary signup-btn">Sign Up</button>
             </div>
-            <div class="login-redirect-container">
-              <Link to="/login" class="login-redirect-link btn-link">
+            <div className="login-redirect-container">
+              <Link to="/login" className="login-redirect-link btn-link">
                 Already have an account{" "}
-                <i class="fa-solid fa-chevron-right"></i>
+                <i className="fa-solid fa-chevron-right"></i>
               </Link>
             </div>
           </form>

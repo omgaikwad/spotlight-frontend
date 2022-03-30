@@ -9,7 +9,7 @@ const VideoCard = ({ video }) => {
   const { videoListDispatch } = useFilterContext();
 
   const videoClickHandler = (videoId) => {
-    navigate(`/${videoId}`);
+    navigate(`/video/${videoId}`);
   };
 
   return (

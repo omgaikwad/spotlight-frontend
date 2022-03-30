@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Video.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
@@ -6,8 +6,10 @@ import HorizontalVideoCard from "../../components/HorizontalVideoCard/Horizontal
 import { useParams } from "react-router-dom";
 import { useVideoContext } from "../../context/video-context";
 import { useFilterContext } from "../../context/filter-context";
+import PlaylistModal from "../../components/PlaylistModal/PlaylistModal";
 
 const Video = () => {
+  const [showPlaylistModal, setShowPlaylistModal] = useState(false);
   const { videoId } = useParams();
   const { videoList } = useVideoContext();
   const { videoListState, videoListDispatch } = useFilterContext();
@@ -22,6 +24,9 @@ const Video = () => {
     <div className="Video video-listing-body">
       <Navbar />
       <Sidebar />
+      {showPlaylistModal && (
+        <PlaylistModal setModal={setShowPlaylistModal} video={video} />
+      )}
       <div className="video-page-container">
         <div className="video-details-container">
           <div className="iframe-container">
@@ -74,30 +79,34 @@ const Video = () => {
                     : "Save to Watch Later"}
                 </p>
               </button>
-              <button className="video-details-cta-btn">
+              <button
+                onClick={() => setShowPlaylistModal(true)}
+                className="video-details-cta-btn"
+              >
                 <i className="fa-solid fa-folder-plus fa-md"></i>
                 <p>Add to Playlist</p>
               </button>
             </div>
           </div>
-          <div class="video-card-channel">
+          <div className="video-card-channel">
             <img
-              class="avatar avatar-sm"
+              className="avatar avatar-sm"
               src={video.channelAvatar}
               alt="avatar"
             />
-            <p class="channel-name">
-              {video.channel} <i class="fa-solid fa-circle-check"></i>
+            <p className="channel-name">
+              {video.channel} <i className="fa-solid fa-circle-check"></i>
             </p>
           </div>
         </div>
         <div className="suggested-video-container">
           <h2 className="suggested-heading">Suggested Videos</h2>
           {suggestedVideoList.map((video) => {
-            return <HorizontalVideoCard video={video} />;
+            return <HorizontalVideoCard key={video._id} video={video} />;
           })}
         </div>
       </div>
+      )
     </div>
   );
 };

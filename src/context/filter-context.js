@@ -1,4 +1,5 @@
 const { createContext, useContext, useReducer } = require("react");
+import { v4 as uuid } from "uuid";
 
 const FilterContext = createContext();
 
@@ -34,6 +35,44 @@ const videoListReducerFunc = (videoListState, action) => {
       return {
         ...videoListState,
         history: [],
+      };
+    case "CREATE_PLAYLIST":
+      return {
+        ...videoListState,
+        playlist: [
+          ...videoListState.playlist,
+          {
+            playlistId: uuid(),
+            playlistName: action.payload,
+            playlistVideos: [],
+          },
+        ],
+      };
+    case "ADD_TO_PLAYLIST":
+      return {
+        ...videoListState,
+        playlist: videoListState.playlist.map((obj) => {
+          return obj.playlistId === action.payload.playlist.playlistId
+            ? {
+                ...obj,
+                playlistVideos: [...obj.playlistVideos, action.payload.video],
+              }
+            : obj;
+        }),
+      };
+    case "REMOVE_FROM_PLAYLIST":
+      return {
+        ...videoListState,
+        playlist: videoListState.playlist.map((obj) => {
+          return obj.playlistId === action.payload.playlist.playlistId
+            ? {
+                ...obj,
+                playlistVideos: obj.playlistVideos.filter(
+                  (video) => video._id != action.payload.video._id
+                ),
+              }
+            : obj;
+        }),
       };
   }
 };

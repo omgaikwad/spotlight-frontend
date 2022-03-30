@@ -15,9 +15,9 @@ const History = () => {
       <Navbar />
       <Sidebar />
 
-      <div class="video-content-container">
+      <div className="video-content-container">
         <div className="history-title-container">
-          <h2 class="page-heading">History</h2>
+          <h2 className="page-heading">History</h2>
           <button
             onClick={() => videoListDispatch({ type: "CLEAR_HISTORY" })}
             className="btn btn-primary clearHistoryBtn"
@@ -25,7 +25,7 @@ const History = () => {
             Clear History
           </button>
         </div>
-        <div class="video-container">
+        <div className="video-container">
           {videoHistoryList.map((video) => (
             <VideoCard video={video} />
           ))}

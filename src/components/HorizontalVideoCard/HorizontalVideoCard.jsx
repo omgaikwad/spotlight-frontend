@@ -9,7 +9,7 @@ const HorizontalVideoCard = ({ video }) => {
   const { videoListDispatch } = useFilterContext();
 
   const videoCardClickHandler = (videoId) => {
-    navigate(`/${videoId}`);
+    navigate(`/video/${videoId}`);
   };
 
   return (
@@ -22,13 +22,13 @@ const HorizontalVideoCard = ({ video }) => {
     >
       <img src={video.thumbnail} alt="" className="horizontal-video-img" />
 
-      <div class="horizontal-video-card-content">
-        <div class="horizontal-video-card-description">
-          <p class="horizontal-video-title">{video.title}</p>
+      <div className="horizontal-video-card-content">
+        <div className="horizontal-video-card-description">
+          <p className="horizontal-video-title">{video.title}</p>
         </div>
-        <div class="horizontal-video-card-channel">
-          <p class="horizontal-channel-name">
-            {video.channel} <i class="fa-solid fa-circle-check"></i>
+        <div className="horizontal-video-card-channel">
+          <p className="horizontal-channel-name">
+            {video.channel} <i className="fa-solid fa-circle-check"></i>
           </p>
         </div>
         <p className="horizontal-video-date">{video.date}</p>
