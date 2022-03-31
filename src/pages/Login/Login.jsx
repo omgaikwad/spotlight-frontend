@@ -8,42 +8,42 @@ const Login = () => {
     <div className="Login">
       <Navbar />
 
-      <main class="main-body">
-        <div class="login-container">
+      <main className="main-body">
+        <div className="login-container">
           <form>
-            <h3 class="login-heading">Login</h3>
+            <h3 className="login-heading">Login</h3>
 
             <label for="form-email">Email</label>
             <input id="form-email" type="email" placeholder="abc@xyz.com" />
 
             <label for="form-password">Password</label>
-            <div class="login-password-container">
+            <div className="login-password-container">
               <input
                 id="form-password"
                 type="password"
                 placeholder="••••••••••••••"
               />
-              <span class="login-password-eye-icon">
-                <i class="fa-solid fa-eye"></i>
+              <span className="login-password-eye-icon">
+                <i className="fa-solid fa-eye"></i>
               </span>
             </div>
 
-            <div class="form-checkbox">
-              <div class="checkbox-container">
+            <div className="form-checkbox">
+              <div className="checkbox-container">
                 <input type="checkbox" />
                 <p>Remember Me</p>
               </div>
-              <a href="" class="forgot-password">
+              <a href="" className="forgot-password">
                 Forgot your Password?
               </a>
             </div>
 
-            <div class="form-buttons">
-              <button class="btn btn-primary login-btn">Login</button>
+            <div className="form-buttons">
+              <button className="btn btn-primary login-btn">Login</button>
             </div>
-            <div class="signup-redirect-container">
-              <Link to="/signup" class="signup-redirect-link btn-link">
-                Create New Account <i class="fa-solid fa-chevron-right"></i>
+            <div className="signup-redirect-container">
+              <Link to="/signup" className="signup-redirect-link btn-link">
+                Create New Account <i className="fa-solid fa-chevron-right"></i>
               </Link>
             </div>
           </form>

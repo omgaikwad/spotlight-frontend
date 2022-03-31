@@ -1,0 +1,12 @@
+.history-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.clearHistoryBtn {
+  margin-right: 5rem;
+  border-radius: 4px;
+  background-color: transparent;
+  color: var(--spotlight-primary);
+  border: 2px solid var(--spotlight-primary);
+}

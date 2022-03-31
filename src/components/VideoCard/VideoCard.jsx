@@ -1,13 +1,28 @@
 import React from "react";
 import "./VideoCard.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useFilterContext } from "../../context/filter-context";
 
 const VideoCard = ({ video }) => {
+  const navigate = useNavigate();
+
+  const { videoListDispatch } = useFilterContext();
+
+  const videoClickHandler = (videoId) => {
+    navigate(`/video/${videoId}`);
+  };
+
   return (
     <div className="VideoCard video-card">
-      <Link to="/video">
-        <img src={video.thumbnail} alt="" />
-      </Link>
+      <img
+        src={video.thumbnail}
+        alt=""
+        className="video-card-thumbnail"
+        onClick={() => {
+          videoClickHandler(video._id);
+          videoListDispatch({ type: "HISTORY", payload: video });
+        }}
+      />
       <div className="video-card-content">
         <div className="video-card-description">
           <p className="video-title">{video.title}</p>

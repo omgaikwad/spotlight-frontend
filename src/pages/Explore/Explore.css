@@ -65,6 +65,11 @@
   cursor: pointer;
   background-color: transparent;
 }
+.active-category-chip {
+  background-color: var(--spotlight-primary);
+  color: var(--spotlight-background);
+  border: none;
+}
 .category-chip i {
   margin-right: 8px;
 }

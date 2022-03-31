@@ -1,26 +1,37 @@
 import React from "react";
 import "./HorizontalVideoCard.css";
+import { useNavigate } from "react-router-dom";
+import { useFilterContext } from "../../context/filter-context";
 
-const HorizontalVideoCard = () => {
+const HorizontalVideoCard = ({ video }) => {
+  const navigate = useNavigate();
+
+  const { videoListDispatch } = useFilterContext();
+
+  const videoCardClickHandler = (videoId) => {
+    navigate(`/video/${videoId}`);
+  };
+
   return (
-    <div className="HorizontalVideoCard">
-      <a href="">
-        <img
-          src="../../assets/video-thumbnails/akash-singh-apu.jpg"
-          alt=""
-          className="horizontal-video-img"
-        />
-      </a>
-      <div class="horizontal-video-card-content">
-        <div class="horizontal-video-card-description">
-          <p class="horizontal-video-title">Akaash Singh's Defense of Apu</p>
+    <div
+      className="HorizontalVideoCard"
+      onClick={() => {
+        videoCardClickHandler(video._id);
+        videoListDispatch({ type: "HISTORY", payload: video });
+      }}
+    >
+      <img src={video.thumbnail} alt="" className="horizontal-video-img" />
+
+      <div className="horizontal-video-card-content">
+        <div className="horizontal-video-card-description">
+          <p className="horizontal-video-title">{video.title}</p>
         </div>
-        <div class="horizontal-video-card-channel">
-          <p class="horizontal-channel-name">
-            PowerfulJRE <i class="fa-solid fa-circle-check"></i>
+        <div className="horizontal-video-card-channel">
+          <p className="horizontal-channel-name">
+            {video.channel} <i className="fa-solid fa-circle-check"></i>
           </p>
         </div>
-        <p className="horizontal-video-date">Feb 9, 2022</p>
+        <p className="horizontal-video-date">{video.date}</p>
       </div>
     </div>
   );

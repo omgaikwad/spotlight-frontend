@@ -12,6 +12,9 @@ import Signup from "./pages/Signup/Signup";
 import WatchLater from "./pages/WatchLater/WatchLater";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Video from "./pages/Video/Video";
+import PageNotFound from "./pages/PageNotFound/PageNotFound";
+import PlaylistModal from "./components/PlaylistModal/PlaylistModal";
+import PlaylistVideos from "./pages/PlaylistVideos/PlaylistVideos";
 
 function App() {
   return (
@@ -25,7 +28,9 @@ function App() {
         <Route path="/history" element={<History />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/video" element={<Video />} />
+        <Route path="/video/:videoId" element={<Video />} />
+        <Route path="/playlist/:playlistId" element={<PlaylistVideos />} />
+        <Route path="/404" element={<PageNotFound />} />
       </Routes>
     </div>
   );

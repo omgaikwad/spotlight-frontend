@@ -1,0 +1,21 @@
+.PlaylistCard {
+  width: 10rem;
+  height: 10rem;
+  position: relative;
+  border: 2px solid white;
+}
+.playlist-card-image {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.playlist-card-name {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: var(--spotlight-white);
+  font-weight: 600;
+}

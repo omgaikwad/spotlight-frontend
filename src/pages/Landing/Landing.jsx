@@ -2,8 +2,11 @@ import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import "./Landing.css";
 import { Link } from "react-router-dom";
+import { useFilterContext } from "../../context/filter-context";
 
 const Landing = () => {
+  const { videoListDispatch } = useFilterContext();
+
   return (
     <div className="Landing">
       <Navbar />
@@ -29,67 +32,109 @@ const Landing = () => {
 
         <h2 className="category-heading">Explore by Categories</h2>
         <div className="categories-container">
-          <div className="category">
-            <a href="">
+          <div
+            onClick={() =>
+              videoListDispatch({ type: "CATEGORY", payload: "music" })
+            }
+            className="category"
+          >
+            <Link to="/explore">
               <img
-                src="/assets/categories/music-category.jpg"
+                src="/assets/images/Music_Outline.svg"
                 alt="non-fiction"
                 className="category-image"
               />
               <p className="category-description">Music Videos</p>
-            </a>
+            </Link>
           </div>
-          <div className="category">
-            <a href="">
+          <div
+            onClick={() =>
+              videoListDispatch({ type: "CATEGORY", payload: "gaming" })
+            }
+            className="category"
+          >
+            <Link to="/explore">
               <img
-                src="/assets/categories/gaming-category.jpg"
+                src="/assets/images/Gaming_Outline.svg"
                 alt="non-fiction"
                 className="category-image"
               />
               <p className="category-description">Gaming</p>
-            </a>
+            </Link>
           </div>
-          <div className="category">
-            <a href="">
+          <div
+            onClick={() =>
+              videoListDispatch({ type: "CATEGORY", payload: "podcast" })
+            }
+            className="category"
+          >
+            <Link to="/explore">
               <img
-                src="/assets/categories/tedtalk-category.jpg"
+                src="/assets/images/Podcast_Outline.svg"
                 alt="non-fiction"
                 className="category-image"
               />
-              <p className="category-description">Ted Talks</p>
-            </a>
+              <p className="category-description">Podcast</p>
+            </Link>
           </div>
-          <div className="category">
-            <a href="">
+          <div
+            onClick={() =>
+              videoListDispatch({ type: "CATEGORY", payload: "tech" })
+            }
+            className="category"
+          >
+            <Link to="/explore">
               <img
-                src="/assets/categories/tech-category.jpg"
+                src="/assets/images/Coding_Outline.svg"
                 alt="non-fiction"
                 className="category-image"
               />
               <p className="category-description">Tech</p>
-            </a>
+            </Link>
           </div>
-          <div className="category">
-            <a href="">
+          <div
+            onClick={() =>
+              videoListDispatch({ type: "CATEGORY", payload: "vlog" })
+            }
+            className="category"
+          >
+            <Link to="/explore">
               <img
-                src="/assets/categories/vlogs-category.jpg"
+                src="/assets/images/Traveling_Outline.svg"
                 alt="non-fiction"
                 className="category-image"
               />
+
               <p className="category-description">Vlogs</p>
-            </a>
-          </div>
-          <div className="category">
-            <a href="">
-              <img
-                src="/assets/categories/anime-category.jpg"
-                alt="non-fiction"
-                className="category-image"
-              />
-              <p className="category-description">Anime</p>
-            </a>
+            </Link>
           </div>
         </div>
+
+        <footer className="landing-footer">
+          <div className="landing-footer-credits">
+            <a
+              href="https://github.com/omgaikwad"
+              className="social-media-link"
+              target="_blank"
+            >
+              <i className="fa-brands fa-github"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/omgaikwad1/"
+              className="social-media-link"
+              target="_blank"
+            >
+              <i className="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a
+              href="https://twitter.com/OmGaikwad_"
+              className="social-media-link"
+              target="_blank"
+            >
+              <i className="fa-brands fa-twitter"></i>
+            </a>
+          </div>
+        </footer>
       </main>
     </div>
   );
