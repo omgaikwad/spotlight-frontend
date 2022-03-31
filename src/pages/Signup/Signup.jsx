@@ -55,7 +55,7 @@ const Signup = () => {
             </div>
             <div className="login-redirect-container">
               <Link to="/login" className="login-redirect-link btn-link">
-                Already have an account{" "}
+                Already have an account
                 <i className="fa-solid fa-chevron-right"></i>
               </Link>
             </div>
