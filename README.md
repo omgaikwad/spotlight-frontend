@@ -1,4 +1,4 @@
-![Logo]()
+<!-- ![Logo]() -->
 
 # Spotlight
 
@@ -6,7 +6,7 @@ Spotlight is a video library web app to stream videos, save videos to watch late
 
 ## Live Project Screenshot
 
-![]()
+![](./public/assets/images/spotlight-ss.png)
 
 ## Live Project Link
 
@@ -25,8 +25,7 @@ Spotlight is a video library web app to stream videos, save videos to watch late
 - Save to Watch Later
 - Complete Playlist Management
 - History of viewed videos
-- suggested videos
-- Responsive for all screen sizes
+- Suggested videos
 
 ## Feedback
 
