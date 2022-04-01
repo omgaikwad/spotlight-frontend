@@ -1,4 +1,4 @@
-![Logo](./public/assets/logo/spotlight-logo.png)
+![Logo](./public/assets/logo/spotlight-logo-small.png)
 
 # Spotlight
 
