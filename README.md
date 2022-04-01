@@ -1,4 +1,4 @@
-<!-- ![Logo]() -->
+![Logo](./public/assets/logo/spotlight-logo-final.png)
 
 # Spotlight
 
