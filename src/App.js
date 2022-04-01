@@ -30,7 +30,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/video/:videoId" element={<Video />} />
         <Route path="/playlist/:playlistId" element={<PlaylistVideos />} />
-        <Route path="/404" element={<PageNotFound />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
   );
