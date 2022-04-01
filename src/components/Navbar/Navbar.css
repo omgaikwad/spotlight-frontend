@@ -11,7 +11,14 @@
   font-size: 2rem;
   font-weight: 800;
 }
-
+.spotlight-logo {
+  width: 2rem;
+}
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
 .center-navbar {
   width: 33%;
   display: flex;
@@ -37,4 +44,19 @@
 .btn-login {
   background-color: var(--spotlight-primary);
   border-radius: 4px;
+}
+
+@media screen and (max-width: 1280px) {
+}
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 768px) {
+  .brand-name {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
 }

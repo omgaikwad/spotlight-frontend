@@ -3,10 +3,27 @@
   justify-content: space-between;
   align-items: center;
 }
+.history-page-heading {
+  margin-left: 2rem;
+}
 .clearHistoryBtn {
   margin-right: 5rem;
   border-radius: 4px;
   background-color: transparent;
   color: var(--spotlight-primary);
   border: 2px solid var(--spotlight-primary);
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 480px) {
+  .history-title-container {
+    justify-content: space-around;
+  }
+  .clearHistoryBtn {
+    margin: 0;
+  }
+  .history-page-heading {
+    margin: 0;
+  }
 }

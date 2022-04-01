@@ -16,7 +16,7 @@ const Liked = () => {
       <Sidebar />
 
       <div className="video-content-container">
-        <h2 className="page-heading">Liked Videos</h2>
+        <h2 className="page-heading liked-videos-heading">Liked Videos</h2>
         <div className="video-container">
           {likedVideoList.map((video) => (
             <VideoCard video={video} />

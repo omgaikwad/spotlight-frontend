@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import PlaylistCard from "../../components/PlaylistCard/PlaylistCard";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import { useFilterContext } from "../../context/filter-context";
+import "./Playlist.css";
 
 const Playlist = () => {
   const { videoListState, videoListDispatch } = useFilterContext();
@@ -14,7 +15,7 @@ const Playlist = () => {
       <Sidebar />
 
       <div className="video-content-container">
-        <h2 className="page-heading">Playlists</h2>
+        <h2 className="page-heading playlist-page-heading">Playlists</h2>
         <div className="video-container">
           {playlistArr.map((playlist) => {
             return (

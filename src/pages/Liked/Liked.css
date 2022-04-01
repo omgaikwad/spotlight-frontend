@@ -1,3 +1,6 @@
 .page-heading {
   color: var(--spotlight-primary);
 }
+.liked-videos-heading {
+  margin-left: 2rem;
+}

@@ -16,7 +16,7 @@ const WatchLater = () => {
       <Sidebar />
 
       <div className="video-content-container">
-        <h2 className="page-heading">Watch Later</h2>
+        <h2 className="page-heading watch-later-heading">Watch Later</h2>
         <div className="video-container">
           {watchedVideoList.map((video) => (
             <VideoCard video={video} />

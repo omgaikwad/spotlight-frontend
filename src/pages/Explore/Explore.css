@@ -52,6 +52,7 @@
   gap: 1rem;
   align-items: center;
   grid-area: chips;
+  flex-wrap: wrap;
 }
 
 .category-chip {
@@ -59,6 +60,7 @@
   justify-content: space-around;
   align-items: center;
   color: var(--spotlight-primary);
+  font-weight: 600;
   padding: 8px 12px;
   border-radius: 2rem;
   border: 2px solid var(--spotlight-primary);
@@ -111,4 +113,45 @@
 }
 .active-page {
   color: var(--spotlight-primary);
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 1280px) {
+  .video-container {
+    justify-content: space-around;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 768px) {
+  .video-listing-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "navbar navbar"
+      "sidebar sidebar"
+      "video-container video-container";
+  }
+  .sidebar-container {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .category-chips-container {
+    margin: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sidebar-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 1rem;
+  }
+  .category-chips-container {
+    margin: 1rem;
+  }
 }

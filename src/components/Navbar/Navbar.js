@@ -6,11 +6,16 @@ const Navbar = () => {
   return (
     <nav className="Navbar">
       <div className="left-navbar">
-        <div className="brand-logo">
-          <Link to="/">
+        <Link to="/">
+          <div className="brand-logo">
             <p className="brand-name">Spotlight</p>
-          </Link>
-        </div>
+            <img
+              src="/assets/logo/spotlight-logo-small.png"
+              alt="spotlight-logo"
+              className="spotlight-logo"
+            />
+          </div>
+        </Link>
       </div>
       <div className="center-navbar">
         <input

@@ -17,7 +17,7 @@ const History = () => {
 
       <div className="video-content-container">
         <div className="history-title-container">
-          <h2 className="page-heading">History</h2>
+          <h2 className="page-heading history-page-heading">History</h2>
           <button
             onClick={() => videoListDispatch({ type: "CLEAR_HISTORY" })}
             className="btn btn-primary clearHistoryBtn"
