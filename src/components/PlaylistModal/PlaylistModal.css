@@ -20,6 +20,8 @@
   height: 18rem;
   border-radius: 8px;
   background-color: var(--spotlight-background);
+  position: relative;
+  z-index: 999;
 }
 
 .playlist-modal-title {
