@@ -74,9 +74,7 @@ const Video = () => {
               >
                 <i className="fa-solid fa-clock fa-md"></i>
                 <p>
-                  {videoListState.watchLater.includes(video)
-                    ? "Saved"
-                    : "Save to Watch Later"}
+                  {videoListState.watchLater.includes(video) ? "Saved" : "Save"}
                 </p>
               </button>
               <button

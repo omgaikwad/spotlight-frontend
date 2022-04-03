@@ -135,22 +135,16 @@
       "sidebar sidebar"
       "video-container video-container";
   }
+  .category-chips-container {
+    margin: 1rem;
+  }
   .sidebar-container {
     flex-direction: row;
     justify-content: space-around;
-  }
-  .category-chips-container {
-    margin: 1rem;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .sidebar-container {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 1rem;
-  }
   .category-chips-container {
     margin: 1rem;
   }
