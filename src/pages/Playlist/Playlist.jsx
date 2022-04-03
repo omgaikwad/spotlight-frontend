@@ -6,7 +6,7 @@ import { useFilterContext } from "../../context/filter-context";
 import "./Playlist.css";
 
 const Playlist = () => {
-  const { videoListState, videoListDispatch } = useFilterContext();
+  const { videoListState } = useFilterContext();
 
   const playlistArr = [...videoListState.playlist];
   return (

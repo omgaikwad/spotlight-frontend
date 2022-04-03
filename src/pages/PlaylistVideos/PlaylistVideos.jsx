@@ -14,8 +14,6 @@ const PlaylistVideos = () => {
     (obj) => obj.playlistId === playlistId
   );
 
-  console.log(myPlaylist);
-
   return (
     <div className="PlaylistVideos video-listing-body">
       <Navbar />
@@ -23,7 +21,7 @@ const PlaylistVideos = () => {
 
       <div className="playlist-video-container">
         <h2 className="playlist-videos-title"> {myPlaylist.playlistName} </h2>
-        <div className="video-container">
+        <div className="video-container playlist-video-list-container">
           {myPlaylist.playlistVideos.map((video) => (
             <VideoCard key={video._id} video={video} />
           ))}

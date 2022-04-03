@@ -2,3 +2,9 @@
   color: white;
   margin: 1rem 0 0 1rem;
 }
+
+@media screen and (max-width: 768px) {
+  .playlist-video-list-container {
+    padding-left: 2rem;
+  }
+}

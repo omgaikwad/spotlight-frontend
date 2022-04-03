@@ -6,6 +6,7 @@
   justify-content: center;
   align-items: center;
   backdrop-filter: blur(6px);
+  z-index: 1;
 }
 
 .playlist-modal-container {
@@ -20,8 +21,6 @@
   height: 18rem;
   border-radius: 8px;
   background-color: var(--spotlight-background);
-  position: relative;
-  z-index: 999;
 }
 
 .playlist-modal-title {
@@ -47,7 +46,6 @@
   flex-direction: column;
   justify-content: center;
   gap: 8px;
-  /* border: 1px solid red; */
   height: 7rem;
   overflow-y: auto;
   padding-top: 8px;
