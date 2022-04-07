@@ -46,6 +46,7 @@
   position: absolute;
   top: 8px;
   right: 12px;
+  color: black;
   cursor: pointer;
 }
 .password-again-container {
@@ -54,15 +55,21 @@
   position: relative;
 }
 
-.password-again-eye-icon {
-  position: absolute;
-  top: 8px;
-  right: 12px;
-  cursor: pointer;
-}
 .btn-link {
   text-decoration-color: var(--spotlight-primary);
 }
 .btn-link:hover {
   color: var(--spotlight-primary);
+}
+
+.signup-error-container {
+  border: 2px solid var(--primary-color);
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.signup-error {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--primary-color);
 }

@@ -23,7 +23,7 @@ const Login = () => {
                 type="password"
                 placeholder="••••••••••••••"
               />
-              <span className="login-password-eye-icon">
+              <span className="password-eye-icon">
                 <i className="fa-solid fa-eye"></i>
               </span>
             </div>
