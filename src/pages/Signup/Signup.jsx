@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import "./Signup.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../context/auth-context";
 
 const Signup = () => {
   const [signupData, setSignupData] = useState({
@@ -11,6 +12,12 @@ const Signup = () => {
     password: "",
     passwordAgain: "",
   });
+
+  const { auth, setAuth } = useAuthContext();
+
+  const navigate = useNavigate();
+
+  const axios = require("axios").default;
 
   const [showPasswords, setShowPasswords] = useState({
     password: false,
@@ -24,20 +31,63 @@ const Signup = () => {
 
   const signupHandler = (e) => {
     e.preventDefault();
+
     if (signupData.password != signupData.passwordAgain) {
       setShowSignupError({
         showError: true,
         message: "Given Passwords does not match!",
       });
+    } else {
+      setShowSignupError({ ...showSignupError, showError: false });
+      setSignupData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+        passwordAgain: "",
+      });
+
+      const createNewUser = async () => {
+        try {
+          const response = await axios.post("/api/auth/signup", {
+            firstName: signupData.firstName,
+            lastName: signupData.lastName,
+            email: signupData.email,
+            password: signupData.password,
+          });
+
+          localStorage.setItem("USER_TOKEN", response.data.encodedToken);
+          localStorage.setItem(
+            "USER_DATA",
+            JSON.stringify({
+              firstName: response.data.createdUser.firstName,
+              lastName: response.data.createdUser.lastName,
+              email: response.data.createdUser.email,
+            })
+          );
+
+          setAuth({
+            isLoggedIn: true,
+            token: response.data.encodedToken,
+            user: {
+              firstName: response.data.createdUser.firstName,
+              lastName: response.data.createdUser.lastName,
+              email: response.data.createdUser.email,
+            },
+          });
+          navigate("/explore");
+          console.log(response);
+        } catch (err) {
+          console.log(err);
+          setShowSignupError({
+            showError: true,
+            message: "Account already exists, please Login",
+          });
+        }
+      };
+
+      createNewUser();
     }
-    console.log(signupData);
-    setSignupData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      passwordAgain: "",
-    });
   };
 
   return (
@@ -91,6 +141,7 @@ const Signup = () => {
                   setSignupData({ ...signupData, password: e.target.value })
                 }
                 value={signupData.password}
+                minLength="6"
                 id="form-password"
                 type={showPasswords.password ? "text" : "password"}
                 placeholder="••••••••••••••"
@@ -131,6 +182,7 @@ const Signup = () => {
                   })
                 }
                 value={signupData.passwordAgain}
+                minLength="6"
                 id="form-password-again"
                 type={showPasswords.passwordAgain ? "text" : "password"}
                 placeholder="••••••••••••••"

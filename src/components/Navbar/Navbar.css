@@ -45,6 +45,62 @@
   background-color: var(--spotlight-primary);
   border-radius: 4px;
 }
+.navbar-profile-container {
+  position: relative;
+}
+
+.navbar-profile-title {
+  color: var(--spotlight-primary);
+}
+
+.navbar-profile-title-account {
+  color: var(--spotlight-primary);
+  font-size: 12px;
+}
+
+.navbar-profile-title-container {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.navbar-profile-dropdown-container {
+  border: 2px solid var(--spotlight-primary);
+  background-color: white;
+  border-radius: 4px;
+  padding: 1rem 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 6rem;
+  position: absolute;
+  top: 3rem;
+  right: 0;
+}
+.navbar-dropdown-my-profile {
+  border: 1px solid var(--spotlight-primary);
+}
+.navbar-dropdown-my-profile a {
+  color: var(--spotlight-primary);
+}
+
+.navbar-profile-dropdown-container button {
+  width: 100%;
+  margin: 0;
+}
+.btn-logout {
+  background-color: var(--spotlight-primary);
+}
+.btn-login {
+  background-color: var(--spotlight-primary);
+}
+.btn-login a {
+  color: var(--spotlight-white);
+}
+.display-none {
+  display: none;
+}
 
 @media screen and (max-width: 1280px) {
 }
