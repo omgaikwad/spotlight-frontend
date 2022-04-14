@@ -5,11 +5,14 @@ import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import VideoCard from "../../components/VideoCard/VideoCard";
 import { useFilterContext } from "../../context/filter-context";
+import { useLikeContext } from "../../context/like-context";
 
 const Liked = () => {
   const { videoListState, videoListDispatch } = useFilterContext();
 
-  const likedVideoList = [...videoListState.likedVideo].reverse();
+  const { likes } = useLikeContext();
+
+  const likedVideoList = [...likes].reverse();
   return (
     <div className="Liked video-listing-body">
       <Navbar />

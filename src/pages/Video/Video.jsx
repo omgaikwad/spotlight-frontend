@@ -7,12 +7,14 @@ import { useParams } from "react-router-dom";
 import { useVideoContext } from "../../context/video-context";
 import { useFilterContext } from "../../context/filter-context";
 import PlaylistModal from "../../components/PlaylistModal/PlaylistModal";
+import { useLikeContext } from "../../context/like-context";
 
 const Video = () => {
   const [showPlaylistModal, setShowPlaylistModal] = useState(false);
   const { videoId } = useParams();
   const { videoList } = useVideoContext();
   const { videoListState, videoListDispatch } = useFilterContext();
+  const { likes, addVideoToLike, removeVideoFromLike } = useLikeContext();
 
   const video = videoList.find((item) => item._id === videoId);
 
@@ -46,22 +48,24 @@ const Video = () => {
               <div className="video-details-date-container">
                 <p> {video.date} </p>
               </div>
+              {likes.find((obj) => obj._id === video._id) ? (
+                <button
+                  onClick={() => removeVideoFromLike(video._id)}
+                  className="video-details-cta-btn active-cta-btn"
+                >
+                  <i className="fa-solid fa-heart fa-md"></i>
+                  <p>Liked</p>
+                </button>
+              ) : (
+                <button
+                  onClick={() => addVideoToLike(video)}
+                  className="video-details-cta-btn"
+                >
+                  <i className="fa-solid fa-heart fa-md"></i>
+                  <p>Like</p>
+                </button>
+              )}
 
-              <button
-                onClick={() =>
-                  videoListDispatch({ type: "LIKE", payload: video })
-                }
-                className={`video-details-cta-btn ${
-                  videoListState.likedVideo.includes(video)
-                    ? "active-cta-btn"
-                    : null
-                }`}
-              >
-                <i className="fa-solid fa-heart fa-md"></i>
-                <p>
-                  {videoListState.likedVideo.includes(video) ? "Liked" : "Like"}
-                </p>
-              </button>
               <button
                 onClick={() =>
                   videoListDispatch({ type: "WATCH_LATER", payload: video })
