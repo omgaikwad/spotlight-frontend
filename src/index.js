@@ -8,6 +8,9 @@ import { VideoContextProvider } from "./context/video-context";
 import { FilterContextProvider } from "./context/filter-context";
 import { AuthContextProvider } from "./context/auth-context";
 import { LikeContextProvider } from "./context/like-context";
+import { WatchLaterContextProvider } from "./context/watch-later-context";
+import { HistoryContextProvider } from "./context/history-context";
+import { PlaylistContextProvider } from "./context/playlist-context";
 
 // Call make Server
 makeServer();
@@ -16,13 +19,19 @@ ReactDOM.render(
   <React.StrictMode>
     <AuthContextProvider>
       <LikeContextProvider>
-        <FilterContextProvider>
-          <VideoContextProvider>
-            <BrowserRouter>
-              <App />
-            </BrowserRouter>
-          </VideoContextProvider>
-        </FilterContextProvider>
+        <WatchLaterContextProvider>
+          <HistoryContextProvider>
+            <PlaylistContextProvider>
+              <FilterContextProvider>
+                <VideoContextProvider>
+                  <BrowserRouter>
+                    <App />
+                  </BrowserRouter>
+                </VideoContextProvider>
+              </FilterContextProvider>
+            </PlaylistContextProvider>
+          </HistoryContextProvider>
+        </WatchLaterContextProvider>
       </LikeContextProvider>
     </AuthContextProvider>
   </React.StrictMode>,

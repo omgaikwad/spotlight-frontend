@@ -1,22 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Video.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import HorizontalVideoCard from "../../components/HorizontalVideoCard/HorizontalVideoCard";
 import { useParams } from "react-router-dom";
 import { useVideoContext } from "../../context/video-context";
-import { useFilterContext } from "../../context/filter-context";
 import PlaylistModal from "../../components/PlaylistModal/PlaylistModal";
 import { useLikeContext } from "../../context/like-context";
+import { useWatchLaterContext } from "../../context/watch-later-context";
 
 const Video = () => {
   const [showPlaylistModal, setShowPlaylistModal] = useState(false);
   const { videoId } = useParams();
   const { videoList } = useVideoContext();
-  const { videoListState, videoListDispatch } = useFilterContext();
   const { likes, addVideoToLike, removeVideoFromLike } = useLikeContext();
+  const { watchLater, addVideoToWatchLater, removeVideoFromWatchLater } =
+    useWatchLaterContext();
+  const [video, setVideo] = useState({});
 
-  const video = videoList.find((item) => item._id === videoId);
+  const axios = require("axios").default;
+
+  useEffect(() => {
+    (async () => {
+      const videoResponse = await axios.get(`/api/video/${videoId}`);
+
+      setVideo(videoResponse.data.video);
+    })();
+  }, [videoId]);
 
   const suggestedVideoList = [...videoList]
     .filter((item) => item._id !== videoId)
@@ -66,21 +76,24 @@ const Video = () => {
                 </button>
               )}
 
-              <button
-                onClick={() =>
-                  videoListDispatch({ type: "WATCH_LATER", payload: video })
-                }
-                className={`video-details-cta-btn ${
-                  videoListState.watchLater.includes(video)
-                    ? "active-cta-btn"
-                    : null
-                }`}
-              >
-                <i className="fa-solid fa-clock fa-md"></i>
-                <p>
-                  {videoListState.watchLater.includes(video) ? "Saved" : "Save"}
-                </p>
-              </button>
+              {watchLater.find((obj) => obj._id === video._id) ? (
+                <button
+                  onClick={() => removeVideoFromWatchLater(video._id)}
+                  className="video-details-cta-btn active-cta-btn"
+                >
+                  <i className="fa-solid fa-clock fa-md"></i>
+                  <p>Saved</p>
+                </button>
+              ) : (
+                <button
+                  onClick={() => addVideoToWatchLater(video)}
+                  className="video-details-cta-btn"
+                >
+                  <i className="fa-solid fa-clock fa-md"></i>
+                  <p>Save</p>
+                </button>
+              )}
+
               <button
                 onClick={() => setShowPlaylistModal(true)}
                 className="video-details-cta-btn"

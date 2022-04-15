@@ -4,11 +4,14 @@ import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import VideoCard from "../../components/VideoCard/VideoCard";
 import { useFilterContext } from "../../context/filter-context";
+import { useWatchLaterContext } from "../../context/watch-later-context";
 
 const WatchLater = () => {
   const { videoListState, videoListDisptach } = useFilterContext();
 
-  const watchedVideoList = videoListState.watchLater;
+  const { watchLater } = useWatchLaterContext();
+
+  const watchedVideoList = [...watchLater].reverse();
 
   return (
     <div className="WatchLater video-listing-body">

@@ -4,11 +4,12 @@ import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import VideoCard from "../../components/VideoCard/VideoCard";
 import { useFilterContext } from "../../context/filter-context";
+import { useHistoryContext } from "../../context/history-context";
 
 const History = () => {
-  const { videoListState, videoListDispatch } = useFilterContext();
+  const { history, clearHistory } = useHistoryContext();
 
-  const videoHistoryList = [...videoListState.history].reverse();
+  const videoHistoryList = [...history].reverse();
 
   return (
     <div className="History video-listing-body">
@@ -19,7 +20,7 @@ const History = () => {
         <div className="history-title-container">
           <h2 className="page-heading history-page-heading">History</h2>
           <button
-            onClick={() => videoListDispatch({ type: "CLEAR_HISTORY" })}
+            onClick={() => clearHistory()}
             className="btn btn-primary clearHistoryBtn"
           >
             Clear History

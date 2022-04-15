@@ -1,13 +1,18 @@
 import React, { useState } from "react";
-import { useFilterContext } from "../../context/filter-context";
+import { usePlaylistContext } from "../../context/playlist-context";
 import "./PlaylistModal.css";
 
 const PlaylistModal = ({ setModal, video }) => {
-  const { videoListState, videoListDispatch } = useFilterContext();
+  const {
+    playlist,
+    createNewPlaylist,
+    addVideoToPlaylist,
+    deleteVideoFromPlaylist,
+  } = usePlaylistContext();
 
   const [playlistName, setPlaylistName] = useState("");
 
-  console.log(videoListState.playlist);
+  console.log(playlist);
 
   return (
     <div className="PlaylistModalBackground">
@@ -15,34 +20,31 @@ const PlaylistModal = ({ setModal, video }) => {
         <div className="playlist-modal-title">
           <h2>Save to...</h2>
           <button onClick={() => setModal(false)} className="btn-close-modal">
-            <i class="fa-solid fa-xmark"></i>
+            <i className="fa-solid fa-xmark"></i>
           </button>
         </div>
         <div className="playlist-list-container">
-          {videoListState.playlist.map((obj) => {
+          {playlist.map((obj) => {
+            console.log(obj.videos.find((item) => item._id === video._id));
             return (
-              <div key={obj.playlistId} className="add-to-playlist-container">
+              <div key={obj._id} className="add-to-playlist-container">
                 <input
                   onChange={(e) => {
                     e.target.checked === true
-                      ? videoListDispatch({
-                          type: "ADD_TO_PLAYLIST",
-                          payload: { playlist: obj, video: video },
-                        })
-                      : videoListDispatch({
-                          type: "REMOVE_FROM_PLAYLIST",
-                          payload: { playlist: obj, video: video },
-                        });
+                      ? addVideoToPlaylist(video, obj._id)
+                      : deleteVideoFromPlaylist(video._id, obj._id);
                   }}
                   checked={
-                    obj.playlistVideos.includes(video) ? true : undefined
+                    obj.videos.find((item) => item._id === video._id)
+                      ? true
+                      : false
                   }
                   type="checkbox"
                   name=""
                   id=""
                   className="playlist-checkbox"
                 />
-                <label htmlFor=""> {obj.playlistName} </label>
+                <label htmlFor=""> {obj.title} </label>
               </div>
             );
           })}
@@ -58,12 +60,7 @@ const PlaylistModal = ({ setModal, video }) => {
           />
           <button
             onClick={() => {
-              playlistName.length != 0
-                ? videoListDispatch({
-                    type: "CREATE_PLAYLIST",
-                    payload: playlistName,
-                  })
-                : null;
+              playlistName.length != 0 ? createNewPlaylist(playlistName) : null;
               setPlaylistName("");
             }}
             className="btn btn-primary btn-create-playlist"

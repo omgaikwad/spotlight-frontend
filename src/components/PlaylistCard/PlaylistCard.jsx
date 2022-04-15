@@ -12,12 +12,12 @@ const PlaylistCard = ({ playlist }) => {
   return (
     <div className="PlaylistCard">
       <img
-        onClick={() => playlistCardClickHandler(playlist.playlistId)}
+        onClick={() => playlistCardClickHandler(playlist._id)}
         className="playlist-card-image"
         src="/assets/images/113-workstation.png"
         alt=""
       />
-      <p className="playlist-card-name"> {playlist.playlistName} </p>
+      <p className="playlist-card-name"> {playlist.title} </p>
     </div>
   );
 };
