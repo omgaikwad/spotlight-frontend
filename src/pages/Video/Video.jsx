@@ -3,11 +3,12 @@ import "./Video.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import HorizontalVideoCard from "../../components/HorizontalVideoCard/HorizontalVideoCard";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useVideoContext } from "../../context/video-context";
 import PlaylistModal from "../../components/PlaylistModal/PlaylistModal";
 import { useLikeContext } from "../../context/like-context";
 import { useWatchLaterContext } from "../../context/watch-later-context";
+import { useAuthContext } from "../../context/auth-context";
 
 const Video = () => {
   const [showPlaylistModal, setShowPlaylistModal] = useState(false);
@@ -19,6 +20,10 @@ const Video = () => {
   const [video, setVideo] = useState({});
 
   const axios = require("axios").default;
+
+  const navigate = useNavigate();
+
+  const { auth } = useAuthContext();
 
   useEffect(() => {
     (async () => {
@@ -68,7 +73,11 @@ const Video = () => {
                 </button>
               ) : (
                 <button
-                  onClick={() => addVideoToLike(video)}
+                  onClick={() => {
+                    auth.isLoggedIn
+                      ? addVideoToLike(video)
+                      : navigate("/login");
+                  }}
                   className="video-details-cta-btn"
                 >
                   <i className="fa-solid fa-heart fa-md"></i>
@@ -86,7 +95,11 @@ const Video = () => {
                 </button>
               ) : (
                 <button
-                  onClick={() => addVideoToWatchLater(video)}
+                  onClick={() => {
+                    auth.isLoggedIn
+                      ? addVideoToWatchLater(video)
+                      : navigate("/login");
+                  }}
                   className="video-details-cta-btn"
                 >
                   <i className="fa-solid fa-clock fa-md"></i>
@@ -95,7 +108,11 @@ const Video = () => {
               )}
 
               <button
-                onClick={() => setShowPlaylistModal(true)}
+                onClick={() => {
+                  auth.isLoggedIn
+                    ? setShowPlaylistModal(true)
+                    : navigate("/login");
+                }}
                 className="video-details-cta-btn"
               >
                 <i className="fa-solid fa-folder-plus fa-md"></i>
