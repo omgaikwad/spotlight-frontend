@@ -10,6 +10,7 @@ export const videos = [
     channelAvatar: "/assets/channel-avatar/joe-rogan.jpg",
     date: "Feb 9, 2022",
     embedLink: "https://www.youtube.com/embed/I5pVVmcSXVU",
+    id: "1",
   },
   {
     _id: "rFY2sjbrCEk",
@@ -20,6 +21,7 @@ export const videos = [
     channelAvatar: "/assets/channel-avatar/valorant.jpg",
     date: "Mar 1, 2022",
     embedLink: "https://www.youtube.com/embed/rFY2sjbrCEk",
+    id: "2",
   },
   {
     _id: "OfS1jFck8YQ",
@@ -30,6 +32,7 @@ export const videos = [
     channelAvatar: "/assets/channel-avatar/inna.jpg",
     date: "Nov 28, 2017",
     embedLink: "https://www.youtube.com/embed/OfS1jFck8YQ",
+    id: "3",
   },
   {
     _id: "wvhP1al3Ur4",
@@ -40,6 +43,7 @@ export const videos = [
     channelAvatar: "/assets/channel-avatar/marques-brownlee.jpg",
     date: "Mar 19, 2022",
     embedLink: "https://www.youtube.com/embed/wvhP1al3Ur4",
+    id: "4",
   },
   {
     _id: "Qmi-Xwq-MEc",
@@ -51,16 +55,7 @@ export const videos = [
     channelAvatar: "/assets/channel-avatar/yes-theory.jpg",
     date: "Dec 1, 2019",
     embedLink: "https://www.youtube.com/embed/Qmi-Xwq-MEc",
-  },
-  {
-    _id: "kAAkkmkRSbQ",
-    title: "Naruto Trains With Kakashi",
-    thumbnail: "/assets/video-thumbnails/naruto-fights-kakashi.jpg",
-    category: "anime",
-    channel: "Dark Tobi",
-    channelAvatar: "/assets/channel-avatar/dark-tobi.jpg",
-    date: "Dec 5, 2020",
-    embedLink: "https://www.youtube.com/embed/kAAkkmkRSbQ",
+    id: "5",
   },
   {
     _id: "QtMzV73NAgk",
@@ -71,6 +66,7 @@ export const videos = [
     channelAvatar: "/assets/channel-avatar/marques-brownlee.jpg",
     date: "Oct 27, 2020",
     embedLink: "https://www.youtube.com/embed/QtMzV73NAgk",
+    id: "6",
   },
   {
     _id: "9J5DxyPSwI4",
@@ -81,5 +77,17 @@ export const videos = [
     channelAvatar: "/assets/channel-avatar/valorant.jpg",
     date: "Feb 25, 2022",
     embedLink: "https://www.youtube.com/embed/9J5DxyPSwI4",
+    id: "7",
+  },
+  {
+    _id: "3qHkcs3kG44",
+    title: "Joe Rogan Experience #1309 - Naval Ravikant",
+    thumbnail: "/assets/video-thumbnails/joe-rogan-naval.jpg",
+    category: "podcast",
+    channel: "PowerfulJRE",
+    channelAvatar: "/assets/channel-avatar/joe-rogan.jpg",
+    date: "Jun 5, 2019",
+    embedLink: "https://www.youtube.com/embed/3qHkcs3kG44",
+    id: "8",
   },
 ];

@@ -1,12 +1,12 @@
 import React from "react";
 import "./HorizontalVideoCard.css";
 import { useNavigate } from "react-router-dom";
-import { useFilterContext } from "../../context/filter-context";
+import { useHistoryContext } from "../../context/history-context";
 
 const HorizontalVideoCard = ({ video }) => {
   const navigate = useNavigate();
 
-  const { videoListDispatch } = useFilterContext();
+  const { addVideoToHistory } = useHistoryContext();
 
   const videoCardClickHandler = (videoId) => {
     navigate(`/video/${videoId}`);
@@ -17,7 +17,7 @@ const HorizontalVideoCard = ({ video }) => {
       className="HorizontalVideoCard"
       onClick={() => {
         videoCardClickHandler(video._id);
-        videoListDispatch({ type: "HISTORY", payload: video });
+        addVideoToHistory(video);
       }}
     >
       <img src={video.thumbnail} alt="" className="horizontal-video-img" />

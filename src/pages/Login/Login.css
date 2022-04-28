@@ -66,3 +66,19 @@ body {
 .btn-link:hover {
   color: var(--spotlight-primary);
 }
+.form-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.login-btn-primary {
+  border: 1px solid var(--spotlight-primary);
+  color: var(--spotlight-primary);
+}
+.show-error-text {
+  font-size: 12px;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  border-radius: 8px;
+  padding: 8px;
+}

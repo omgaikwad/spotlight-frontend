@@ -1,18 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import VideoCard from "../../components/VideoCard/VideoCard";
 import "./PlaylistVideos.css";
 import { useParams } from "react-router-dom";
-import { useFilterContext } from "../../context/filter-context";
+import { useAuthContext } from "../../context/auth-context";
 
 const PlaylistVideos = () => {
   const { playlistId } = useParams();
-  const { videoListState } = useFilterContext();
+  console.log(playlistId);
+  const [myPlaylist, setMyPlaylist] = useState({ videos: [] });
 
-  const myPlaylist = videoListState.playlist.find(
-    (obj) => obj.playlistId === playlistId
-  );
+  const { auth } = useAuthContext();
+
+  const axios = require("axios").default;
+
+  useEffect(() => {
+    (async () => {
+      const playlistVideoResponse = await axios.get(
+        `/api/user/playlists/${playlistId}`,
+        {
+          headers: {
+            authorization: auth.token,
+          },
+        }
+      );
+      setMyPlaylist(playlistVideoResponse.data.playlist);
+    })();
+  }, [playlistId]);
 
   return (
     <div className="PlaylistVideos video-listing-body">
@@ -20,9 +35,9 @@ const PlaylistVideos = () => {
       <Sidebar />
 
       <div className="playlist-video-container">
-        <h2 className="playlist-videos-title"> {myPlaylist.playlistName} </h2>
+        <h2 className="playlist-videos-title"> {myPlaylist.title} </h2>
         <div className="video-container playlist-video-list-container">
-          {myPlaylist.playlistVideos.map((video) => (
+          {myPlaylist.videos.map((video) => (
             <VideoCard key={video._id} video={video} />
           ))}
         </div>

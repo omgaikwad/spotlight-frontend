@@ -1,11 +1,11 @@
 import React from "react";
 import "./Sidebar.css";
 import { NavLink } from "react-router-dom";
+import { useAuthContext } from "../../context/auth-context";
 
 const Sidebar = () => {
-  let activeStyle = {
-    color: "#1ed760",
-  };
+  const { auth } = useAuthContext();
+
   return (
     <div className="Sidebar sidebar-container">
       <NavLink to="/" className="sidebar-navigation">
