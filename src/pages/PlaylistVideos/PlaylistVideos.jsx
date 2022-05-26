@@ -5,29 +5,18 @@ import VideoCard from "../../components/VideoCard/VideoCard";
 import "./PlaylistVideos.css";
 import { useParams } from "react-router-dom";
 import { useAuthContext } from "../../context/auth-context";
+import { usePlaylistContext } from "../../context/playlist-context";
 
 const PlaylistVideos = () => {
   const { playlistId } = useParams();
-  console.log(playlistId);
-  const [myPlaylist, setMyPlaylist] = useState({ videos: [] });
+
+  const { playlist } = usePlaylistContext();
+
+  const mySinglePlaylist = playlist.find((item) => item._id === playlistId);
 
   const { auth } = useAuthContext();
 
   const axios = require("axios").default;
-
-  useEffect(() => {
-    (async () => {
-      const playlistVideoResponse = await axios.get(
-        `/api/user/playlists/${playlistId}`,
-        {
-          headers: {
-            authorization: auth.token,
-          },
-        }
-      );
-      setMyPlaylist(playlistVideoResponse.data.playlist);
-    })();
-  }, [playlistId]);
 
   return (
     <div className="PlaylistVideos video-listing-body">
@@ -35,10 +24,10 @@ const PlaylistVideos = () => {
       <Sidebar />
 
       <div className="playlist-video-container">
-        <h2 className="playlist-videos-title"> {myPlaylist.title} </h2>
+        <h2 className="playlist-videos-title"> {mySinglePlaylist.title} </h2>
         <div className="video-container playlist-video-list-container">
-          {myPlaylist.videos.map((video) => (
-            <VideoCard key={video._id} video={video} />
+          {mySinglePlaylist.videos.map((video) => (
+            <VideoCard key={video._id} video={video} playlistId={playlistId} />
           ))}
         </div>
       </div>

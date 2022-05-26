@@ -16,6 +16,17 @@
   left: 0;
   width: 100%;
   text-align: center;
-  color: var(--spotlight-white);
+  color: var(--spotlight-primary);
   font-weight: 600;
+}
+
+.delete-playlist-icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  color: red;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 100%;
+  background-color: white;
 }

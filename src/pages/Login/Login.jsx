@@ -20,7 +20,7 @@ const Login = () => {
 
   const [showLoginError, setShowLoginError] = useState({
     showError: true,
-    errorMessage: "Login to added videos to Playlist",
+    errorMessage: "Login to add videos to Playlist",
   });
 
   const loginExistingUser = async () => {

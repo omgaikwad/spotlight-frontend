@@ -140,11 +140,13 @@ export const removeVideoFromPlaylistHandler = function (schema, request) {
   if (user) {
     const playlistId = request.params.playlistId;
     const videoId = request.params.videoId;
+    console.log(playlistId, videoId);
     let playlist = user.playlists.find((item) => item._id === playlistId);
     const filteredVideos = playlist.videos.filter(
       (item) => item._id !== videoId
     );
     playlist.videos = filteredVideos;
+    console.log(playlist);
     return new Response(200, {}, { playlist });
   }
   return new Response(

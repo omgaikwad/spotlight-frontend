@@ -2,6 +2,7 @@
   width: 20rem;
   height: 18rem;
   margin-bottom: 2rem;
+  position: relative;
 }
 .video-card-content {
   display: flex;
@@ -40,4 +41,15 @@
 }
 .video-card-thumbnail {
   cursor: pointer;
+}
+
+.delete-icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: red;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 100%;
+  background-color: white;
 }

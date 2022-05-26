@@ -93,11 +93,10 @@ const PlaylistContextProvider = ({ children }) => {
           },
         }
       );
-      console.log("delete video from playlist", playlist);
-      setPlaylist([
-        ...playlist.filter((item) => item._id != playlistId),
-        deleteVideoPlaylistResponse.data.playlist,
-      ]);
+
+      const newPlaylist = playlist.filter((item) => item._id !== playlistId);
+
+      setPlaylist([...newPlaylist, deleteVideoPlaylistResponse.data.playlist]);
     } catch (err) {
       console.log(err);
     }
