@@ -9,8 +9,6 @@ const VideoCard = ({ video, playlistId }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  console.log("path", location.pathname);
-
   const { addVideoToHistory, removeVideoFromHistory } = useHistoryContext();
   const { removeVideoFromWatchLater } = useWatchLaterContext();
   const { deleteVideoFromPlaylist } = usePlaylistContext();

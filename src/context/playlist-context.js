@@ -18,7 +18,6 @@ const PlaylistContextProvider = ({ children }) => {
             authorization: auth.token,
           },
         });
-        console.log("playlist response", playlistResponse);
         setPlaylist(playlistResponse.data.playlists);
       })();
     } else {

@@ -71,8 +71,8 @@ const Login = () => {
 
   const guestLoginHandler = (e) => {
     setLoginData({
-      email: "adarshbalika@gmail.com",
-      password: "adarshBalika123",
+      email: "omgaikwad228@gmail.com",
+      password: "omgaikwad123",
     });
 
     loginExistingUser();
